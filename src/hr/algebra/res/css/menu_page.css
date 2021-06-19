@@ -1,0 +1,17 @@
+.background {
+    -fx-background-color: linear-gradient(to bottom right, #A62834, #661820);
+}
+
+.album-cover {
+    -fx-background-radius: 25;
+}
+
+.album-frame {
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.37), 32, 0, 2, 8)
+}
+
+.play-button {
+    -fx-background-color: #A62834;
+    -fx-background-radius: 50;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.37), 32, 0, 2, 8)
+}

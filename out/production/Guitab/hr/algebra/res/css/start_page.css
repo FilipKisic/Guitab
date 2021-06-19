@@ -1,0 +1,6 @@
+.button-play{
+    -fx-background-color: #A62834;
+    -fx-text-fill: white;
+    -fx-background-radius: 15;
+    -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.55), 45, 0, -5, 10)
+}

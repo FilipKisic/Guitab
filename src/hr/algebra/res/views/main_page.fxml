@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@../css/main_page.css"
+            xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hr.algebra.controllers.MainPageController">
+    <Label layoutX="638.0" layoutY="462.0" text="Frequency: ">
+        <font>
+            <Font name="Poppins Medium" size="24.0"/>
+        </font>
+    </Label>
+    <Label fx:id="lblResult" layoutX="778.0" layoutY="462.0" text="0 Hz">
+        <font>
+            <Font name="Poppins Medium" size="24.0"/>
+        </font>
+    </Label>
+    <Button fx:id="btnStart" layoutX="708.0" layoutY="511.0" mnemonicParsing="false" onAction="#btnStartPressed" text="Start"/>
+    <Label layoutX="865.0" layoutY="462.0" text="Note :">
+        <font>
+            <Font name="Poppins Medium" size="24.0"/>
+        </font>
+    </Label>
+    <Label fx:id="lblNote" layoutX="942.0" layoutY="463.0" text="_">
+        <font>
+            <Font name="Poppins Medium" size="24.0"/>
+        </font>
+    </Label>
+    <Label layoutX="58.0" layoutY="28.0" text="Now playing">
+        <font>
+            <Font name="Poppins Bold" size="22.0"/>
+        </font>
+    </Label>
+    <Label fx:id="lbSongTitle" layoutX="56.0" layoutY="62.0" text="Song name">
+        <font>
+            <Font name="Poppins Bold" size="38.0"/>
+        </font>
+    </Label>
+    <Pane layoutY="815.0" prefHeight="85.0" prefWidth="1600.0" styleClass="bottom-banner">
+        <ToggleButton fx:id="btnPlayPause" layoutX="770.0" layoutY="12.0" mnemonicParsing="false" onAction="#btnPlayPausePressed"
+                      prefHeight="60.0" prefWidth="60.0" styleClass="play-pause"/>
+        <ToggleButton fx:id="btnSkipToStart" layoutX="710.0" layoutY="23.0" mnemonicParsing="false" onAction="#btnSkipToStartPressed"
+                      prefHeight="40.0" prefWidth="40.0" styleClass="skip-to-start"/>
+        <ToggleButton fx:id="btnSkipToEnd" layoutX="851.0" layoutY="23.0" mnemonicParsing="false" onAction="#btnSkipToEndPressed"
+                      prefHeight="40.0" prefWidth="40.0" styleClass="skip-to-end"/>
+        <Label fx:id="lbBandName" layoutX="49.0" layoutY="22.0" text="Band name" textFill="#e6e6e6">
+            <font>
+                <Font name="Poppins Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lbSongName" layoutX="49.0" layoutY="42.0" text="Song name" textFill="#e6e6e6">
+            <font>
+                <Font name="Poppins Bold" size="18.0"/>
+            </font>
+        </Label>
+        <Label fx:id="lbDuration" layoutX="1449.0" layoutY="29.0" text="00:00/00:00" textFill="#e6e6e6">
+            <font>
+                <Font name="Poppins Bold" size="18.0"/>
+            </font>
+        </Label>
+    </Pane>
+    <ImageView fitHeight="272.0" fitWidth="1600.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
+        <Image url="@../images/freatboard.png"/>
+    </ImageView>
+    <Ellipse fx:id="lowE_1" fill="#d93444" layoutX="58.0" layoutY="732.0" radiusX="15.0" radiusY="15.0" stroke="#d93444"
+             strokeType="INSIDE"/>
+    <TextArea fx:id="taTab" editable="false" layoutX="55.0" layoutY="132.0" prefHeight="200.0" prefWidth="1490.0"/>
+</AnchorPane>

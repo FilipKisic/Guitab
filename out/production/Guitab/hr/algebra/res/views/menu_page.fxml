@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="ancrPnMenuBackground" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@../css/menu_page.css"
+            xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="hr.algebra.controllers.MenuPageController">
+    <Label layoutX="62.0" layoutY="25.0" text="Guitab" textFill="#e6e6e6">
+        <font>
+            <Font name="Poppins Bold" size="48.0"/>
+        </font>
+    </Label>
+    <Label layoutX="64.0" layoutY="91.0" text="Choose song to play" textFill="#e6e6e6">
+        <font>
+            <Font name="Poppins Bold" size="28.0"/>
+        </font>
+    </Label>
+    <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#e6e6e6" height="386.0" layoutX="56.0" layoutY="249.0" stroke="BLACK"
+               strokeType="INSIDE" strokeWidth="0.0" styleClass="album-frame" width="314.0"/>
+    <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="63.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true"
+               style="-fx-background-radius: 25;" styleClass="album-cover">
+        <Image url="@../images/albums/afd_cover.jpg"/>
+    </ImageView>
+    <Button fx:id="btnParadise" layoutX="287.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnPlaySongPressed" styleClass="play-button"
+            text="Play" textFill="#e6e6e6">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Label layoutX="77.0" layoutY="569.0" text="Paradise city">
+        <font>
+            <Font name="Poppins Bold" size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="77.0" layoutY="594.0" text="by Guns 'n' Roses">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#e6e6e6" height="386.0" layoutX="437.0" layoutY="249.0" stroke="BLACK"
+               strokeType="INSIDE" strokeWidth="0.0" styleClass="album-frame" width="314.0"/>
+    <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="444.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true"
+               style="-fx-background-radius: 25;" styleClass="album-cover">
+        <Image url="@../images/albums/eric_cover.jpg"/>
+    </ImageView>
+    <Button fx:id="btnCliffs" layoutX="668.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnPlaySongPressed" styleClass="play-button"
+            text="Play" textFill="#e6e6e6">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Label layoutX="458.0" layoutY="569.0" text="Cliffs of Dover">
+        <font>
+            <Font name="Poppins Bold" size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="458.0" layoutY="594.0" text="by Eric Johnson">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#e6e6e6" height="386.0" layoutX="835.0" layoutY="249.0" stroke="BLACK"
+               strokeType="INSIDE" strokeWidth="0.0" styleClass="album-frame" width="314.0"/>
+    <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="842.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true"
+               style="-fx-background-radius: 25;" styleClass="album-cover">
+        <Image url="@../images/albums/my_songs.jpg"/>
+    </ImageView>
+    <Button fx:id="btnFields" layoutX="1066.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnPlaySongPressed" styleClass="play-button"
+            text="Play" textFill="#e6e6e6">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Label layoutX="856.0" layoutY="569.0" text="Fields of Gold">
+        <font>
+            <Font name="Poppins Bold" size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="856.0" layoutY="594.0" text="by Sting">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Label>
+    <Rectangle arcHeight="35.0" arcWidth="35.0" fill="#e6e6e6" height="386.0" layoutX="1219.0" layoutY="249.0" stroke="BLACK"
+               strokeType="INSIDE" strokeWidth="0.0" styleClass="album-frame" width="314.0"/>
+    <ImageView fitHeight="300.0" fitWidth="300.0" layoutX="1226.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true"
+               style="-fx-background-radius: 25;" styleClass="album-cover">
+        <Image url="@../images/albums/clapton_cover.jpg"/>
+    </ImageView>
+    <Button fx:id="btnLayla" layoutX="1450.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnPlaySongPressed" styleClass="play-button"
+            text="Play" textFill="#e6e6e6">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Button>
+    <Label layoutX="1240.0" layoutY="569.0" text="Layla">
+        <font>
+            <Font name="Poppins Bold" size="26.0"/>
+        </font>
+    </Label>
+    <Label layoutX="1240.0" layoutY="594.0" text="by Eric Clapton">
+        <font>
+            <Font name="Poppins Bold" size="18.0"/>
+        </font>
+    </Label>
+</AnchorPane>

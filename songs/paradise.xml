@@ -1,0 +1,32 @@
+<song>
+    <name>Paradise City</name>
+    <artist>Guns'n'Roses</artist>
+    <album>Appetite for Destruction</album>
+    <duration>6:49</duration>
+    <tab>
+        <fragment>
+            <string>low_e</string>
+            <fret>3</fret>
+            <frequency>98</frequency>
+            <time>1:23</time>
+        </fragment>
+        <fragment>
+            <string>low_e</string>
+            <fret>1</fret>
+            <frequency>87</frequency>
+            <time>1:24</time>
+        </fragment>
+        <fragment>
+            <string>low_e</string>
+            <fret>2</fret>
+            <frequency>92</frequency>
+            <time>1:25</time>
+        </fragment>
+        <fragment>
+            <string>low_e</string>
+            <fret>3</fret>
+            <frequency>98</frequency>
+            <time>1:26</time>
+        </fragment>
+    </tab>
+</song>
