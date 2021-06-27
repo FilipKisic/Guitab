@@ -1,5 +1,6 @@
 package hr.algebra;
 
+import java.util.Objects;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("res/views/start_page.fxml"));
+        Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("res/views/start_page.fxml")));
         primaryStage.setTitle("Guitab");
         primaryStage.setScene(new Scene(root, 1200, 675));
         primaryStage.show();

@@ -3,6 +3,7 @@ package hr.algebra.controllers;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -27,10 +28,10 @@ public class MenuPageController {
     public void btnPlaySongPressed(ActionEvent actionEvent) {
         String buttonId = ((Button) actionEvent.getSource()).getId();
         String songName = buttonId.replace("btn", "");
-        openSongLecture(songName);
+        openSongLecture(songName, actionEvent);
     }
 
-    private void openSongLecture(String songName) {
+    private void openSongLecture(String songName, ActionEvent actionEvent) {
         try {
             FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("hr/algebra/res/views/main_page.fxml")));
             Parent root = loader.load();
@@ -38,6 +39,7 @@ public class MenuPageController {
             controller.loadSong(songName);
             Stage stage = setupStage(root);
             stage.show();
+            //closeStartWindow(actionEvent, controller, stage);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -50,5 +52,14 @@ public class MenuPageController {
         stage.setResizable(false);
         stage.sizeToScene();
         return stage;
+    }
+
+    private void closeStartWindow(ActionEvent actionEvent, MainPageController controller, Stage stage) {
+        stage.setOnHidden(e ->{
+            controller.stopApplication();
+            Platform.exit();
+        });
+        stage.show();
+        ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
     }
 }

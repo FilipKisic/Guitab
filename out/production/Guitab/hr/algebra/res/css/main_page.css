@@ -7,20 +7,29 @@
 }
 
 .play-pause {
-    -fx-background-image: url('/images/play-b.png');
+    -fx-background-image: url('../images/play-b.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 40 40;
     -fx-background-color: #E6E6E6;
     -fx-background-radius: 50;
     -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.37), 32, 0, 2, 8)
 }
 
 .play-pause:selected {
-    -fx-background-image: url('/images/pause.png');
+    -fx-background-image: url('../images/pause.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 40 40;
     -fx-background-radius: 50;
     -fx-effect: innershadow(gaussian, rgba( 0, 0, 0, 0.37 ), 10, 0, 2, 8);
 }
 
 .skip-to-start {
-    -fx-background-image: url('/images/start.png');
+    -fx-background-image: url('../images/start.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 30 30;
     -fx-background-color: #E6E6E6;
     -fx-background-radius: 50;
     -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.37), 32, 0, 2, 8)
@@ -31,7 +40,10 @@
 }
 
 .skip-to-end {
-    -fx-background-image: url('/images/end.png');
+    -fx-background-image: url('../images/end.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: 30 30;
     -fx-background-color: #E6E6E6;
     -fx-background-radius: 50;
     -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.37), 32, 0, 2, 8)
