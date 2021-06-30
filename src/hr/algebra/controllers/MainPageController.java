@@ -6,7 +6,6 @@ import hr.algebra.model.Song;
 import hr.algebra.utils.Stopwatch;
 import hr.algebra.xml.SongLoader;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -21,6 +20,7 @@ public class MainPageController implements Initializable {
 
     private static Stopwatch ticker;
     private static boolean isPlaying = false;
+    private Integer currentMinutes = 0;
 
     public Label lblResult;
     public Button btnStart;
@@ -65,6 +65,20 @@ public class MainPageController implements Initializable {
         lblNote.setText(InputNoteDetector.detectNote(frequency));
     }
 
+
+    public void updateTimeUI(Integer currentSeconds) {
+        if (currentSeconds % 60 == 0)
+            currentMinutes++;
+        if (currentMinutes >= 10 && currentSeconds % 60 >= 10)
+            lbDuration.setText(currentMinutes + ":" + currentSeconds % 60 + "/" + SongLoader.loadedSong.getDuration());
+        else if (currentMinutes >= 10 && currentSeconds % 60 < 10)
+            lbDuration.setText(currentMinutes + ":0" + currentSeconds % 60 + "/" + SongLoader.loadedSong.getDuration());
+        else if (currentMinutes < 10 && currentSeconds % 60 >= 10)
+            lbDuration.setText("0" + currentMinutes + ":" + currentSeconds % 60 + "/" + SongLoader.loadedSong.getDuration());
+        else
+            lbDuration.setText("0" + currentMinutes + ":0" + currentSeconds % 60 + "/" + SongLoader.loadedSong.getDuration());
+    }
+
     public void loadSong(String songName) {
         try {
             SongLoader.loadSongXML(songName);
@@ -78,7 +92,7 @@ public class MainPageController implements Initializable {
     }
 
     private void initTicker() {
-        ticker = new Stopwatch(SongLoader.loadedSong.getDuration());
+        ticker = new Stopwatch(SongLoader.loadedSong.getDuration(), this::updateTimeUI);
         tickingThread = new Thread(ticker);
         tickingThread.start();
         ticker.stopTicking();
@@ -92,7 +106,7 @@ public class MainPageController implements Initializable {
     }
 
     public void btnPlayPausePressed() {
-        Platform.runLater(this::btnPlayPauseProcess);
+        btnPlayPauseProcess();
     }
 
     private void btnPlayPauseProcess() {
@@ -101,19 +115,18 @@ public class MainPageController implements Initializable {
         if (isPlaying) {
             ticker.resume();
             setupButtonImage("/hr/algebra/res/images/pause.png", btnPlayPause, 40);
-        }
-        else{
+        } else {
             ticker.stopTicking();
             setupButtonImage("/hr/algebra/res/images/play-b.png", btnPlayPause, 40);
         }
     }
 
     public void btnSkipToStartPressed() {
-        System.out.println("Skip to Start pressed!");
+        ticker.reset();
     }
 
     public void btnSkipToEndPressed() {
-        System.out.println("Skip to End pressed!");
+        ticker.skipToEnd();
     }
 
     public void stopApplication() {

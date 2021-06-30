@@ -1,22 +1,27 @@
 package hr.algebra.utils;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
+import javafx.util.Duration;
+
+import java.util.function.Consumer;
+
+
 public class Stopwatch implements Runnable {
 
+    private Timeline timeline;
     private int currentSeconds = 0;
-    private int currentMinutes = 0;
     private final int totalSeconds;
     private boolean doStop = false;
     private boolean doReset = true;
+    private final Consumer<Integer> updateUIConsumer;
 
-    public Stopwatch(int maxMinutes, int maxSeconds) {
-        this.totalSeconds = (maxMinutes * 60) + maxSeconds;
-    }
-
-    public Stopwatch(String duration) {
+    public Stopwatch(String duration, Consumer<Integer> updateUIConsumer) {
         String[] split = duration.split(":");
         int minutes = Integer.parseInt(split[0]);
         int seconds = Integer.parseInt(split[1]);
         this.totalSeconds = (minutes * 60) + seconds;
+        this.updateUIConsumer = updateUIConsumer;
     }
 
     @Override
@@ -24,14 +29,16 @@ public class Stopwatch implements Runnable {
         if (doReset) {
             reset();
         }
-        while (keepTicking() && currentSeconds < totalSeconds) {
-            tick();
-            printTime();
-        }
-    }
-
-    private void printTime() {
-        System.out.println(currentMinutes + ":" + currentSeconds % 60);
+        timeline = new Timeline(new KeyFrame(Duration.seconds(1), event -> {
+            if (keepTicking() && currentSeconds < totalSeconds) {
+                tick();
+            } else if (currentSeconds == totalSeconds) {
+                stopTicking();
+                updateUIConsumer.accept(totalSeconds);
+            }
+        }));
+        timeline.setCycleCount(Timeline.INDEFINITE);
+        timeline.play();
     }
 
     private synchronized boolean keepTicking() {
@@ -39,30 +46,30 @@ public class Stopwatch implements Runnable {
     }
 
     public synchronized void tick() {
-        try {
-            Thread.sleep(1000);
-        }
-        catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         currentSeconds++;
-        if (currentSeconds % 60 == 0) {
-            currentMinutes++;
-        }
+        updateUIConsumer.accept(currentSeconds);
     }
 
     public synchronized void stopTicking() {
+        System.out.println("STOPPED");
         doStop = true;
+        if (timeline != null)
+            timeline.pause();
     }
 
     public synchronized void resume() {
         doStop = false;
-        run();
+        timeline.play();
     }
 
-    private void reset() {
+    public void reset() {
         doReset = false;
         currentSeconds = 0;
-        currentMinutes = 0;
+        if (timeline != null)
+            timeline.playFromStart();
+    }
+
+    public void skipToEnd() {
+        currentSeconds = totalSeconds;
     }
 }
