@@ -3,8 +3,11 @@ package hr.algebra.xml;
 import hr.algebra.model.Fragment;
 import hr.algebra.model.GuitarString;
 import hr.algebra.model.Song;
+import hr.algebra.utils.Stopwatch;
 
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
@@ -18,6 +21,8 @@ public class SongLoader {
     private static final StringBuilder stringBuilderG = new StringBuilder();
     private static final StringBuilder stringBuilderB = new StringBuilder();
     private static final StringBuilder stringBuilderHighE = new StringBuilder();
+    public static Map<Integer, Integer> timeFrequencyMap;
+    public static Map<Integer, String> timeEllipseMap;
 
     public static void loadSongXML(String songName) throws JAXBException {
         JAXBContext jaxbContext = JAXBContext.newInstance(Song.class);
@@ -27,9 +32,13 @@ public class SongLoader {
 
     public static String parseSongToTab() {
         StringBuilder stringBuilder = new StringBuilder();
+        timeFrequencyMap = new HashMap<>();
+        timeEllipseMap = new HashMap<>();
         for (Fragment fragment : loadedSong.getFragments()) {
             GuitarString gs = GuitarString.valueOf(fragment.getString().toUpperCase());
             createTabColumn(gs, fragment.getFret());
+            timeFrequencyMap.put(Stopwatch.calculateTotalSeconds(fragment.getTime()), fragment.getFrequency());
+            timeEllipseMap.put(Stopwatch.calculateTotalSeconds(fragment.getTime()), fragment.getString() + "_" + fragment.getFret());
         }
         stringBuilder.append(stringBuilderHighE).append("\n")
                 .append(stringBuilderB).append("\n")

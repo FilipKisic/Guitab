@@ -52,3 +52,9 @@
 .skip-to-end:selected {
     -fx-effect: dropshadow(one-pass-box, rgba(0,0,0,0.37), 32, 0, 2, 8)
 }
+
+.choose-button {
+    -fx-background-color: #A62834;
+    -fx-background-radius: 15;
+    -fx-padding: 10 20;
+}

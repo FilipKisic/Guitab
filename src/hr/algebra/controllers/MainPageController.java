@@ -1,8 +1,10 @@
 package hr.algebra.controllers;
 
 import hr.algebra.audio.AudioInputProcessor;
+import hr.algebra.audio.AudioPlayer;
 import hr.algebra.audio.InputNoteDetector;
 import hr.algebra.model.Song;
+import hr.algebra.utils.GridView;
 import hr.algebra.utils.Stopwatch;
 import hr.algebra.xml.SongLoader;
 import javafx.application.Platform;
@@ -10,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Ellipse;
 
 import javax.xml.bind.JAXBException;
@@ -20,8 +23,8 @@ public class MainPageController implements Initializable {
 
     private static Stopwatch ticker;
     private static boolean isPlaying = false;
-    private Integer currentMinutes = 0;
 
+    public AnchorPane mainContainer;
     public Label lblResult;
     public Button btnStart;
     public Label lblNote;
@@ -33,8 +36,12 @@ public class MainPageController implements Initializable {
     public Label lbSongName;
     public Label lbDuration;
     public TextArea taTab;
-    public Ellipse lowE_1;
-    private Thread tickingThread;
+    public Ellipse low_e_1;
+    public Button btnChoose;
+
+    private int currentUserFrequency;
+    private Integer currentMinutes = 0;
+    private Integer currentSeconds = 0;
 
 
     @Override
@@ -60,13 +67,13 @@ public class MainPageController implements Initializable {
     }
 
     private void updateUI() {
-        int frequency = AudioInputProcessor.currentFrequency;
-        lblResult.setText(frequency + "Hz");
-        lblNote.setText(InputNoteDetector.detectNote(frequency));
+        currentUserFrequency = AudioInputProcessor.currentFrequency;
+        lblResult.setText(currentUserFrequency + "Hz");
+        lblNote.setText(InputNoteDetector.detectNote(currentUserFrequency));
     }
 
-
-    public void updateTimeUI(Integer currentSeconds) {
+    public void updateTimeUI(Integer tickingSeconds) {
+        currentSeconds = tickingSeconds;
         if (currentSeconds % 60 == 0)
             currentMinutes++;
         if (currentMinutes >= 10 && currentSeconds % 60 >= 10)
@@ -89,11 +96,12 @@ public class MainPageController implements Initializable {
         fillWithInfo(SongLoader.loadedSong);
         initTicker();
         taTab.setText(SongLoader.parseSongToTab());
+        GridView.initGridView(mainContainer);
     }
 
     private void initTicker() {
-        ticker = new Stopwatch(SongLoader.loadedSong.getDuration(), this::updateTimeUI);
-        tickingThread = new Thread(ticker);
+        ticker = new Stopwatch(SongLoader.loadedSong.getDuration(), this::updateTimeUI, this::checkFrequencyMatching);
+        Thread tickingThread = new Thread(ticker);
         tickingThread.start();
         ticker.stopTicking();
     }
@@ -110,15 +118,32 @@ public class MainPageController implements Initializable {
     }
 
     private void btnPlayPauseProcess() {
-        System.out.println("Button play-pause pressed!");
         isPlaying = !isPlaying;
         if (isPlaying) {
             ticker.resume();
+            AudioPlayer.play();
             setupButtonImage("/hr/algebra/res/images/pause.png", btnPlayPause, 40);
         } else {
             ticker.stopTicking();
+            AudioPlayer.pause();
             setupButtonImage("/hr/algebra/res/images/play-b.png", btnPlayPause, 40);
         }
+        checkFrequencyMatching();
+    }
+
+    private void checkFrequencyMatching() {
+        Integer frequency = SongLoader.timeFrequencyMap.get(currentSeconds);
+        if (frequency != null && currentUserFrequency != 0) {
+            if (isFrequencyInSafeRange(frequency)) {
+                System.out.println("OKAY: " + frequency + "==" + currentUserFrequency);
+            } else {
+                System.out.println("BANANA: " + frequency + "!=" + currentUserFrequency);
+            }
+        }
+    }
+
+    private boolean isFrequencyInSafeRange(int frequency) {
+        return frequency - 4 <= currentUserFrequency && currentUserFrequency <= frequency + 4;
     }
 
     public void btnSkipToStartPressed() {
@@ -131,5 +156,9 @@ public class MainPageController implements Initializable {
 
     public void stopApplication() {
         Platform.exit();
+    }
+
+    public void btnChoosePressed() {
+        AudioPlayer.loadBackingTrack();
     }
 }

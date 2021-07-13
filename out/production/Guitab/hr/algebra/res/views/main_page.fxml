@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Ellipse?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@../css/main_page.css"
+<AnchorPane fx:id="mainContainer" prefHeight="900.0" prefWidth="1600.0" styleClass="background" stylesheets="@../css/main_page.css"
             xmlns="http://javafx.com/javafx/8.0.202" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="hr.algebra.controllers.MainPageController">
     <Label layoutX="638.0" layoutY="462.0" text="Frequency: ">
@@ -70,11 +70,231 @@
     <ImageView fitHeight="272.0" fitWidth="1600.0" layoutY="544.0" pickOnBounds="true" preserveRatio="true">
         <Image url="@../images/freatboard.png"/>
     </ImageView>
-    <Ellipse fx:id="lowE_1" fill="#d93444" layoutX="58.0" layoutY="732.0" radiusX="15.0" radiusY="15.0" stroke="#d93444"
+    <Ellipse fx:id="low_e_1" fill="#1ec22f" layoutX="58.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
              strokeType="INSIDE"/>
-    <TextArea fx:id="taTab" editable="false" layoutX="55.0" layoutY="132.0" prefHeight="200.0" prefWidth="1490.0">
+    <TextArea fx:id="taTab" editable="false" layoutX="55.0" layoutY="132.0" prefHeight="210.0" prefWidth="1490.0">
         <font>
             <Font name="Poppins Medium" size="18.0"/>
         </font>
     </TextArea>
+    <Ellipse fx:id="a_1" fill="#1ec22f" layoutX="58.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_1" fill="#1ec22f" layoutX="58.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_1" fill="#1ec22f" layoutX="58.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_1" fill="#1ec22f" layoutX="58.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_1" fill="#1ec22f" layoutX="58.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_2" fill="#1ec22f" layoutX="187.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_2" fill="#1ec22f" layoutX="187.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_2" fill="#1ec22f" layoutX="187.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_2" fill="#1ec22f" layoutX="187.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_2" fill="#1ec22f" layoutX="187.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_2" fill="#1ec22f" layoutX="187.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_3" fill="#1ec22f" layoutX="297.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_3" fill="#1ec22f" layoutX="297.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_3" fill="#1ec22f" layoutX="297.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_3" fill="#1ec22f" layoutX="297.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_3" fill="#1ec22f" layoutX="297.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_3" fill="#1ec22f" layoutX="297.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_4" fill="#1ec22f" layoutX="398.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_4" fill="#1ec22f" layoutX="398.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_4" fill="#1ec22f" layoutX="398.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_4" fill="#1ec22f" layoutX="398.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_4" fill="#1ec22f" layoutX="398.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_4" fill="#1ec22f" layoutX="398.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_5" fill="#1ec22f" layoutX="501.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_5" fill="#1ec22f" layoutX="501.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_5" fill="#1ec22f" layoutX="501.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_5" fill="#1ec22f" layoutX="501.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_5" fill="#1ec22f" layoutX="501.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_5" fill="#1ec22f" layoutX="501.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_6" fill="#1ec22f" layoutX="595.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_6" fill="#1ec22f" layoutX="595.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_6" fill="#1ec22f" layoutX="595.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_6" fill="#1ec22f" layoutX="595.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_6" fill="#1ec22f" layoutX="595.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_6" fill="#1ec22f" layoutX="595.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_7" fill="#1ec22f" layoutX="685.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_7" fill="#1ec22f" layoutX="685.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_7" fill="#1ec22f" layoutX="685.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_7" fill="#1ec22f" layoutX="685.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_7" fill="#1ec22f" layoutX="685.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_7" fill="#1ec22f" layoutX="685.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_8" fill="#1ec22f" layoutX="766.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_8" fill="#1ec22f" layoutX="766.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_8" fill="#1ec22f" layoutX="766.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_8" fill="#1ec22f" layoutX="766.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_8" fill="#1ec22f" layoutX="766.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_8" fill="#1ec22f" layoutX="766.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_9" fill="#1ec22f" layoutX="850.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_9" fill="#1ec22f" layoutX="850.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="d_9" fill="#1ec22f" layoutX="850.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="g_9" fill="#1ec22f" layoutX="850.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="b_9" fill="#1ec22f" layoutX="850.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f" strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_9" fill="#1ec22f" layoutX="850.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_10" fill="#1ec22f" layoutX="922.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_10" fill="#1ec22f" layoutX="922.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_10" fill="#1ec22f" layoutX="922.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_10" fill="#1ec22f" layoutX="922.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_10" fill="#1ec22f" layoutX="922.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_10" fill="#1ec22f" layoutX="922.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_11" fill="#1ec22f" layoutX="994.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_11" fill="#1ec22f" layoutX="994.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_11" fill="#1ec22f" layoutX="994.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_11" fill="#1ec22f" layoutX="994.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_11" fill="#1ec22f" layoutX="994.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_11" fill="#1ec22f" layoutX="994.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_12" fill="#1ec22f" layoutX="1061.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_12" fill="#1ec22f" layoutX="1061.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_12" fill="#1ec22f" layoutX="1061.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_12" fill="#1ec22f" layoutX="1061.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_12" fill="#1ec22f" layoutX="1061.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_12" fill="#1ec22f" layoutX="1061.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_13" fill="#1ec22f" layoutX="1121.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_13" fill="#1ec22f" layoutX="1121.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_13" fill="#1ec22f" layoutX="1121.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_13" fill="#1ec22f" layoutX="1121.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_13" fill="#1ec22f" layoutX="1121.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_13" fill="#1ec22f" layoutX="1121.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_14" fill="#1ec22f" layoutX="1181.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_14" fill="#1ec22f" layoutX="1181.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_14" fill="#1ec22f" layoutX="1181.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_14" fill="#1ec22f" layoutX="1181.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_14" fill="#1ec22f" layoutX="1181.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_14" fill="#1ec22f" layoutX="1181.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_15" fill="#1ec22f" layoutX="1238.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_15" fill="#1ec22f" layoutX="1238.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_15" fill="#1ec22f" layoutX="1238.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_15" fill="#1ec22f" layoutX="1238.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_15" fill="#1ec22f" layoutX="1238.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_15" fill="#1ec22f" layoutX="1238.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_16" fill="#1ec22f" layoutX="1290.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_16" fill="#1ec22f" layoutX="1290.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_16" fill="#1ec22f" layoutX="1290.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_16" fill="#1ec22f" layoutX="1290.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_16" fill="#1ec22f" layoutX="1290.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_16" fill="#1ec22f" layoutX="1290.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_17" fill="#1ec22f" layoutX="1340.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_17" fill="#1ec22f" layoutX="1340.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_17" fill="#1ec22f" layoutX="1340.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_17" fill="#1ec22f" layoutX="1340.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_17" fill="#1ec22f" layoutX="1340.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_17" fill="#1ec22f" layoutX="1340.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_18" fill="#1ec22f" layoutX="1389.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_18" fill="#1ec22f" layoutX="1389.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_18" fill="#1ec22f" layoutX="1389.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_18" fill="#1ec22f" layoutX="1389.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_18" fill="#1ec22f" layoutX="1389.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_18" fill="#1ec22f" layoutX="1389.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_19" fill="#1ec22f" layoutX="1434.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_19" fill="#1ec22f" layoutX="1434.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_19" fill="#1ec22f" layoutX="1434.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_19" fill="#1ec22f" layoutX="1434.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_19" fill="#1ec22f" layoutX="1434.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_19" fill="#1ec22f" layoutX="1434.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_20" fill="#1ec22f" layoutX="1474.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_20" fill="#1ec22f" layoutX="1474.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_20" fill="#1ec22f" layoutX="1474.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_20" fill="#1ec22f" layoutX="1474.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_20" fill="#1ec22f" layoutX="1474.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_20" fill="#1ec22f" layoutX="1474.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="low_e_21" fill="#1ec22f" layoutX="1515.0" layoutY="732.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="a_21" fill="#1ec22f" layoutX="1515.0" layoutY="697.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="d_21" fill="#1ec22f" layoutX="1515.0" layoutY="669.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="g_21" fill="#1ec22f" layoutX="1515.0" layoutY="627.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="b_21" fill="#1ec22f" layoutX="1515.0" layoutY="596.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Ellipse fx:id="high_e_21" fill="#1ec22f" layoutX="1515.0" layoutY="572.0" radiusX="12.0" radiusY="12.0" stroke="#1ec22f"
+             strokeType="INSIDE"/>
+    <Button fx:id="btnChoose" layoutX="1347.0" layoutY="24.0" mnemonicParsing="false" onAction="#btnChoosePressed"
+            styleClass="choose-button" text="Choose backing track" textFill="WHITE">
+        <font>
+            <Font name="Poppins Bold" size="14.0"/>
+        </font>
+    </Button>
 </AnchorPane>
