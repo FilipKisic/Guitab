@@ -132,7 +132,7 @@ public class MainPageController implements Initializable {
     }
 
     private void checkFrequencyMatching() {
-        Integer frequency = SongLoader.timeFrequencyMap.get(currentSeconds);
+        Integer frequency = SongLoader.timeFrequencyMap.get(--currentSeconds);
         if (frequency != null && currentUserFrequency != 0) {
             if (isFrequencyInSafeRange(frequency)) {
                 System.out.println("OKAY: " + frequency + "==" + currentUserFrequency);
