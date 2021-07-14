@@ -2,7 +2,6 @@ package hr.algebra.controllers;
 
 import hr.algebra.audio.AudioInputProcessor;
 import hr.algebra.audio.AudioPlayer;
-import hr.algebra.audio.InputNoteDetector;
 import hr.algebra.model.Song;
 import hr.algebra.utils.GridView;
 import hr.algebra.utils.Stopwatch;
@@ -25,9 +24,7 @@ public class MainPageController implements Initializable {
     private static boolean isPlaying = false;
 
     public AnchorPane mainContainer;
-    public Label lblResult;
     public Button btnStart;
-    public Label lblNote;
     public Label lbSongTitle;
     public Button btnPlayPause;
     public Button btnSkipToStart;
@@ -38,6 +35,7 @@ public class MainPageController implements Initializable {
     public TextArea taTab;
     public Ellipse low_e_1;
     public Button btnChoose;
+    public ImageView ivFeedback;
 
     private int currentUserFrequency;
     private Integer currentMinutes = 0;
@@ -68,8 +66,6 @@ public class MainPageController implements Initializable {
 
     private void updateUI() {
         currentUserFrequency = AudioInputProcessor.currentFrequency;
-        lblResult.setText(currentUserFrequency + "Hz");
-        lblNote.setText(InputNoteDetector.detectNote(currentUserFrequency));
     }
 
     public void updateTimeUI(Integer tickingSeconds) {
@@ -136,10 +132,26 @@ public class MainPageController implements Initializable {
         if (frequency != null && currentUserFrequency != 0) {
             if (isFrequencyInSafeRange(frequency)) {
                 System.out.println("OKAY: " + frequency + "==" + currentUserFrequency);
+                showCorrectFeedback();
             } else {
                 System.out.println("BANANA: " + frequency + "!=" + currentUserFrequency);
+                showIncorrectFeedback();
             }
         }
+    }
+
+    private void showCorrectFeedback() {
+        Image imgPlay = new Image("/hr/algebra/res/images/correct.png");
+        ivFeedback.setImage(imgPlay);
+        ivFeedback.setFitHeight(80);
+        ivFeedback.setPreserveRatio(true);
+    }
+
+    private void showIncorrectFeedback() {
+        Image imgPlay = new Image("/hr/algebra/res/images/incorrect.png");
+        ivFeedback.setImage(imgPlay);
+        ivFeedback.setFitHeight(80);
+        ivFeedback.setPreserveRatio(true);
     }
 
     private boolean isFrequencyInSafeRange(int frequency) {
