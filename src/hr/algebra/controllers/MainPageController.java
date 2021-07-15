@@ -6,7 +6,6 @@ import hr.algebra.model.Song;
 import hr.algebra.utils.GridView;
 import hr.algebra.utils.Stopwatch;
 import hr.algebra.xml.SongLoader;
-import javafx.application.Platform;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -164,10 +163,6 @@ public class MainPageController implements Initializable {
 
     public void btnSkipToEndPressed() {
         ticker.skipToEnd();
-    }
-
-    public void stopApplication() {
-        Platform.exit();
     }
 
     public void btnChoosePressed() {

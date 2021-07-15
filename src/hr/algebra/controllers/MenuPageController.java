@@ -1,6 +1,5 @@
 package hr.algebra.controllers;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -21,10 +20,6 @@ public class MenuPageController {
     public Button btnFields;
     public Button btnLayla;
 
-    public void stopApplication() {
-        Platform.exit();
-    }
-
     public void btnPlaySongPressed(ActionEvent actionEvent) {
         String buttonId = ((Button) actionEvent.getSource()).getId();
         String songName = buttonId.replace("btn", "");
@@ -38,8 +33,7 @@ public class MenuPageController {
             MainPageController controller = loader.getController();
             controller.loadSong(songName);
             Stage stage = setupStage(root);
-            stage.show();
-            //closeStartWindow(actionEvent, controller, stage);
+            closeStartWindow(actionEvent, stage);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,11 +48,7 @@ public class MenuPageController {
         return stage;
     }
 
-    private void closeStartWindow(ActionEvent actionEvent, MainPageController controller, Stage stage) {
-        stage.setOnHidden(e ->{
-            controller.stopApplication();
-            Platform.exit();
-        });
+    private void closeStartWindow(ActionEvent actionEvent, Stage stage) {
         stage.show();
         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
     }

@@ -1,6 +1,5 @@
 package hr.algebra.controllers;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -19,9 +18,8 @@ public class StartPageController {
         try {
             FXMLLoader loader = new FXMLLoader(Objects.requireNonNull(getClass().getClassLoader().getResource("hr/algebra/res/views/menu_page.fxml")));
             Parent root = loader.load();
-            MenuPageController controller = loader.getController();
             Stage stage = setupStage(root);
-            closeStartWindow(actionEvent, controller, stage);
+            closeStartWindow(actionEvent, stage);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -29,18 +27,14 @@ public class StartPageController {
 
     private Stage setupStage(Parent root) {
         Stage stage = new Stage();
-        Scene scene = new Scene(root, 1600,900);
+        Scene scene = new Scene(root, 1600, 900);
         stage.setScene(scene);
         stage.setResizable(false);
         stage.sizeToScene();
         return stage;
     }
 
-    private void closeStartWindow(ActionEvent actionEvent, MenuPageController controller, Stage stage) {
-        stage.setOnHidden(e ->{
-            controller.stopApplication();
-            Platform.exit();
-        });
+    private void closeStartWindow(ActionEvent actionEvent, Stage stage) {
         stage.show();
         ((Node) (actionEvent.getSource())).getScene().getWindow().hide();
     }
