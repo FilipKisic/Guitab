@@ -39,6 +39,7 @@ public class MainPageController implements Initializable {
     private int currentUserFrequency;
     private Integer currentMinutes = 0;
     private Integer currentSeconds = 0;
+    private static boolean isActiveGuitar = false;
 
 
     @Override
@@ -57,10 +58,13 @@ public class MainPageController implements Initializable {
     }
 
     public void btnStartPressed() {
-        AudioInputProcessor aip = new AudioInputProcessor(this::updateUI);
-        Thread inputThread = new Thread(aip::processInput);
-        inputThread.setDaemon(true);
-        inputThread.start();
+        if(!isActiveGuitar) {
+            AudioInputProcessor aip = new AudioInputProcessor(this::updateUI);
+            Thread inputThread = new Thread(aip::processInput);
+            inputThread.setDaemon(true);
+            inputThread.start();
+            isActiveGuitar = true;
+        }
     }
 
     private void updateUI() {
