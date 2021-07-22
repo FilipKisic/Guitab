@@ -1,0 +1,26 @@
+<song>
+    <name>Demo song</name>
+    <artist>Filip Kisic</artist>
+    <album>Graduation song</album>
+    <duration>00:03</duration>
+    <tab>
+        <fragment>
+            <string>low_e</string>
+            <fret>3</fret>
+            <frequency>97</frequency>
+            <time>0:1</time>
+        </fragment>
+        <fragment>
+            <string>a</string>
+            <fret>2</fret>
+            <frequency>123</frequency>
+            <time>0:2</time>
+        </fragment>
+        <fragment>
+            <string>d</string>
+            <fret>3</fret>
+            <frequency>175</frequency>
+            <time>0:3</time>
+        </fragment>
+    </tab>
+</song>

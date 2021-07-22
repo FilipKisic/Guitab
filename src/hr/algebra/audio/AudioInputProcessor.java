@@ -17,10 +17,10 @@ import javax.sound.sampled.LineUnavailableException;
 public class AudioInputProcessor {
     private AudioDispatcher audioDispatcher;
     public static int currentFrequency;
-    private final Runnable updateUIMethodReference;
+    private final Runnable frequencySetterMethodReference;
 
-    public AudioInputProcessor(Runnable updateUIMethodReference) {
-        this.updateUIMethodReference = updateUIMethodReference;
+    public AudioInputProcessor(Runnable frequencySetterMethodReference) {
+        this.frequencySetterMethodReference = frequencySetterMethodReference;
     }
 
     public void processInput() {
@@ -54,16 +54,16 @@ public class AudioInputProcessor {
     private void handlePitch(PitchDetectionResult pitchDetectionResult, AudioEvent audioEvent) {
         if (pitchDetectionResult.getPitch() != -1.0) {
             currentFrequency = Math.round(pitchDetectionResult.getPitch());
-            updateUI();
+            setCurrentFrequency();
         }
     }
 
-    private void updateUI() {
+    private void setCurrentFrequency() {
         try {
-            Thread.sleep(5); //provide enough time to update UI
+            Thread.sleep(5); //provide enough time to set variables
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        Platform.runLater(updateUIMethodReference);
+        Platform.runLater(frequencySetterMethodReference);
     }
 }

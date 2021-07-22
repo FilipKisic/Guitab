@@ -59,7 +59,7 @@ public class MainPageController implements Initializable {
 
     public void btnStartPressed() {
         if(!isActiveGuitar) {
-            AudioInputProcessor aip = new AudioInputProcessor(this::updateUI);
+            AudioInputProcessor aip = new AudioInputProcessor(this::setCurrentFrequency);
             Thread inputThread = new Thread(aip::processInput);
             inputThread.setDaemon(true);
             inputThread.start();
@@ -67,7 +67,7 @@ public class MainPageController implements Initializable {
         }
     }
 
-    private void updateUI() {
+    private void setCurrentFrequency() {
         currentUserFrequency = AudioInputProcessor.currentFrequency;
     }
 
@@ -134,10 +134,8 @@ public class MainPageController implements Initializable {
         Integer frequency = SongLoader.timeFrequencyMap.get(--currentSeconds);
         if (frequency != null && currentUserFrequency != 0) {
             if (isFrequencyInSafeRange(frequency)) {
-                System.out.println("OKAY: " + frequency + "==" + currentUserFrequency);
                 showCorrectFeedback();
             } else {
-                System.out.println("BANANA: " + frequency + "!=" + currentUserFrequency);
                 showIncorrectFeedback();
             }
         }
